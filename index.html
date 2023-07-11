@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Code Editor</title>
+    <script src="https://kit.fontawesome.com/ea3fa2f403.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Prism/prism.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="Prism/prism.js"></script>
+</head>
+
+<body>
+    <div id="editor-container">
+        <div class="editor">
+            <div class="editor-heading">
+                <i class="fa-brands fa-html5"></i>
+                <p>HTML</p>
+            </div>
+            <textarea data-id="html" oninput="highlightSyntax(this.value,'html');" spellcheck="false" onscroll="syncScroll(this,'html')" onkeydown="checkTab(this,event)"></textarea>
+            <pre class="highlighting pre-html">
+                <code class="language-html" id="highlight-content-html"></code>
+            </pre>
+        </div>
+        <div class="editor">
+            <div class="editor-heading">
+                <i class="fa-brands fa-css3-alt"></i>
+                <p>CSS</p>
+
+            </div>
+            <textarea data-input="css" oninput="highlightSyntax(this.value,'css')" spellcheck="false" onscroll="syncScroll(this,'css')" onkeydown="checkTab(this.value,event)"></textarea>
+            <pre class="highlighting pre-css">
+                <code class="language-css" id="highlight-content-css"></code>
+            </pre>
+        </div>
+        <div class="editor">
+            <div class="editor-heading">
+                <i class="fa-brands fa-js"></i>
+                <p>Javascript</p>
+            </div>
+            <textarea data-input="js" oninput="highlightSyntax(this.value,'js')" spellcheck="false" onscroll="syncScroll(this,'js')" onkeydown="checkTab(this.value,event)"></textarea>
+            <pre class="highlighting pre-js">
+                <code class="language-js" id="highlight-content-js"></code>
+            </pre>
+        </div>
+    </div>
+    <div id="output-container">
+        <div class="output-heading">
+            <i class="fa-solid fa-play"></i>
+            <p>Output</p>
+        </div>
+        <iframe></iframe>
+    </div>
+    <!-- <code><h1>hello</h1></code> -->
+    <script src="main.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
