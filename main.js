@@ -1,11 +1,12 @@
 
 const DOMElement = {
     htmlInputBox: document.querySelector(`[data-id="html"]`),
-    cssInputBox: document.querySelector("[data-input='css']"),
-    jsInputBox: document.querySelector("[data-input='js']"),
+    cssInputBox: document.querySelector(`[data-input="css"]`),
+    jsInputBox: document.querySelector(`[data-input="js"]`),
 };
+
+//Takes the content from text area with the language 
 const highlightSyntax = (content, lang) => {
-    // console.log(content);
     if (content[content.length - 1] == '\n') {
         content += " ";
     }
@@ -48,22 +49,18 @@ const checkTab = (element, event) => {
         if(after_tab == ""){
             after_tab = "";
         }
-        console.log(after_tab);
         text = before_tab + "\t" + after_tab; // add tab char
         let cursorPos = element.selectionEnd + 1;
         element.selectionStart = cursorPos;
         element.selectionEnd = cursorPos;
-        // text += '\t';
-        console.log(text);
         if (element == DOMElement.htmlInputBox) {
-            console.log("in check tab");
             DOMElement.htmlInputBox.value = text;
-            highlightSyntax(text, "html");
+        }else if(element == DOMElement.cssInputBox){
+            DOMElement.cssInputBox.value = text;
+        }else if(element == DOMElement.jsInputBox){
+            DOMElement.jsInputBox.value = text;
         }
     }
-
-
-
 }
 const renderContent = (content, updatedInputBox) => {
     if (updatedInputBox == 0)
@@ -85,6 +82,7 @@ function handleEvents() {
         DOMElement.jsInputBox.value = "";
     });
     let tid;
+    //Check the textarea being edited using event bubbling
     document.querySelector("#editor-container").addEventListener("keyup", (e) => {
 
         clearTimeout(tid);
@@ -104,25 +102,6 @@ function handleEvents() {
                 renderContent(DOMElement.jsInputBox.value, 2);
             }, 200)
         }
-        // if (e.key == 'Tab') {
-
-        // }
-
-
-
-
-
-        // tid = setTimeout(()=>{
-        //     if(e.target === DOMElement.htmlInputBox){
-        //         renderContent(DOMElement.htmlInputBox.value,0);
-
-        //     }else if(e.target === DOMElement.cssInputBox){
-        //         renderContent(DOMElement.cssInputBox.value,1);
-        //     }else if(e.target === inputBoxes[2]){
-        //         renderContent(DOMElement.jsInputBox.value,2);
-        //     }
-        // },200)
-
     })
 }
 handleEvents();

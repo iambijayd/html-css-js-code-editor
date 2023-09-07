@@ -35,7 +35,7 @@
                 <p>CSS</p>
 
             </div>
-            <textarea data-input="css" oninput="highlightSyntax(this.value,'css')" spellcheck="false" onscroll="syncScroll(this,'css')" onkeydown="checkTab(this.value,event)"></textarea>
+            <textarea data-input="css" oninput="highlightSyntax(this.value,'css')" spellcheck="false" onscroll="syncScroll(this,'css')" onkeydown="checkTab(this,event)"></textarea>
             <pre class="highlighting pre-css">
                 <code class="language-css" id="highlight-content-css"></code>
             </pre>
@@ -45,7 +45,7 @@
                 <i class="fa-brands fa-js"></i>
                 <p>Javascript</p>
             </div>
-            <textarea data-input="js" oninput="highlightSyntax(this.value,'js')" spellcheck="false" onscroll="syncScroll(this,'js')" onkeydown="checkTab(this.value,event)"></textarea>
+            <textarea data-input="js" oninput="highlightSyntax(this.value,'js')" spellcheck="false" onscroll="syncScroll(this,'js')" onkeydown="checkTab(this,event)"></textarea>
             <pre class="highlighting pre-js">
                 <code class="language-js" id="highlight-content-js"></code>
             </pre>
@@ -58,7 +58,6 @@
         </div>
         <iframe></iframe>
     </div>
-    <!-- <code><h1>hello</h1></code> -->
     <script src="main.js"></script>
 </body>
 
